@@ -12,7 +12,11 @@ function CategoryPage() {
         {categories.map((c) => (
           <li key={c.id}
             onClick={() => setSelected(c.name)}
-            style={{ cursor: "pointer" }}
+            style={{ 
+              cursor: "pointer",
+            fontWeight: selected === c.name ? "bold" : "normal",
+          color: selected ===c.name ? "blue" : "black",
+         }}
             >{c.name}
             </li>
         ))}

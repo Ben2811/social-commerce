@@ -86,6 +86,14 @@ export default function LoginPage() {
                             required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:border-black transition-colors"
                         />
+                        <div className="text-right mt-2">
+                            <a
+                                href="/forgot-password"
+                                className="text-sm text-gray-600 hover:text-black hover:underline transition-colors"
+                            >
+                                Quên mật khẩu?
+                            </a>
+                        </div>
                     </div>
 
                     {/* Submit Button */}

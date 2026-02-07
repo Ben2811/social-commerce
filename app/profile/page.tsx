@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   User,
   Mail,
@@ -32,6 +32,7 @@ export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState(mockUser);
   const [editData, setEditData] = useState(mockUser);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -57,6 +58,42 @@ export default function ProfilePage() {
     }));
   };
 
+  const handleAvatarClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Check if file is an image
+      if (!file.type.startsWith("image/")) {
+        alert("Vui lòng chọn file ảnh!");
+        return;
+      }
+
+      // Check file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert("Kích thước ảnh không được vượt quá 5MB!");
+        return;
+      }
+
+      // Create preview URL
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const newAvatar = reader.result as string;
+        setUserData((prev) => ({
+          ...prev,
+          avatar: newAvatar,
+        }));
+        setEditData((prev) => ({
+          ...prev,
+          avatar: newAvatar,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -69,11 +106,24 @@ export default function ProfilePage() {
                 <img
                   src={userData.avatar}
                   alt={userData.fullName}
-                  className="w-32 h-32 rounded-full border-4 border-white dark:border-zinc-800 shadow-lg bg-white"
+                  className="w-32 h-32 rounded-full border-4 border-white dark:border-zinc-800 shadow-lg bg-white object-cover"
                 />
-                <button className="absolute bottom-2 right-2 bg-white dark:bg-zinc-700 p-2 rounded-full shadow-lg hover:scale-110 transition-transform">
-                  <Camera className="w-4 h-4 text-gray-700 dark:text-gray-200" />
-                </button>
+                {isEditing && (
+                  <button
+                    onClick={handleAvatarClick}
+                    type="button"
+                    className="absolute bottom-2 right-2 bg-white dark:bg-zinc-700 p-2 rounded-full shadow-lg hover:scale-110 transition-transform hover:bg-blue-50 dark:hover:bg-zinc-600"
+                  >
+                    <Camera className="w-4 h-4 text-gray-700 dark:text-gray-200" />
+                  </button>
+                )}
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleAvatarChange}
+                  className="hidden"
+                />
               </div>
             </div>
           </div>

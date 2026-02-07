@@ -5,10 +5,10 @@ function CategoryPage() {
     const [selected, setSelected] = useState(null);
 
   return (
-    <div>
-      <h2>Danh mục sản phẩm</h2>
+    <div className="category-page">
+      <h2 className="category-title">Danh mục sản phẩm</h2>
 
-      <ul>
+      <ul className="category-list">
         {categories.map((c) => (
           <li key={c.id}
             onClick={() => setSelected(c.name)}
@@ -16,12 +16,13 @@ function CategoryPage() {
               cursor: "pointer",
             fontWeight: selected === c.name ? "bold" : "normal",
           color: selected ===c.name ? "blue" : "black",
+          marginBottom: "6px",
          }}
             >{c.name}
             </li>
         ))}
       </ul>
-      {selected && <p>Đang xem danh mục: {selected}</p>}
+      {selected && <p className="category-selected">Đang xem danh mục: {selected}</p>}
     </div>
   );
 }

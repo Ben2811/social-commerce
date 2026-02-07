@@ -4,4 +4,6 @@ export const IMAGES = {
         FACEBOOK: "/image/icon/facebook-app-symbol.png",
         YOUTUBE: "/image/icon/youtube.png",
     },
+    BANNER: "/image/bamner/banner.jpg",
+    PRODUCT: "/image/bamner/banner.jpg",
 };

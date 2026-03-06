@@ -102,8 +102,21 @@ export default function LoginPage() {
                         disabled={isLoading}
                         className="w-full py-3 px-6 bg-black text-white font-medium rounded-lg hover:bg-gray-800 active:bg-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        {isLoading ? "Đang đăng nhập..." : "Đăng nhập"}
+                        {isLoading ? "Đang xử lý..." : "Đăng nhập"}
                     </button>
+
+                    {/* Register Link */}
+                    <div className="text-center mt-6">
+                        <p className="text-sm text-gray-600">
+                            Chưa có tài khoản?{" "}
+                            <a
+                                href="/register"
+                                className="text-black font-semibold hover:underline transition-colors"
+                            >
+                                Đăng ký ngay
+                            </a>
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>

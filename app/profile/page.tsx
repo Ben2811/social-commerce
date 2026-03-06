@@ -132,9 +132,18 @@ export default function ProfilePage() {
           <div className="pt-20 px-8 pb-8">
             <div className="flex justify-between items-start mb-6">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                  {userData.fullName}
-                </h1>
+                {!isEditing ? (
+                  <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    {userData.fullName}
+                  </h1>
+                ) : (
+                  <input
+                    type="text"
+                    value={editData.fullName}
+                    onChange={(e) => handleInputChange("fullName", e.target.value)}
+                    className="text-2xl font-bold bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-600 rounded-lg px-4 py-2 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none mb-2 w-full"
+                  />
+                )}
                 <p className="text-gray-500 dark:text-gray-400 flex items-center gap-2">
                   <User className="w-4 h-4" />@{userData.username}
                 </p>

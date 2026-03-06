@@ -92,7 +92,8 @@ export default function RegisterPage() {
       <Navbar />
       <div className="flex flex-1">
         {/* Form Section */}
-        <div className="flex w-full flex-col justify-center overflow-y-auto bg-white px-16 py-10 md:w-1/2">
+        <div className="flex w-full flex-col items-center justify-center bg-white py-12 md:w-1/2">
+          <div className="w-full max-w-md px-8">
           <h2 className="mb-8 text-2xl font-bold text-gray-900">Đăng ký săn deal ngay !!!</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -186,6 +187,7 @@ export default function RegisterPage() {
               Đăng Nhập
             </Link>
           </p>
+          </div>
         </div>
 
         {/* Image Section */}

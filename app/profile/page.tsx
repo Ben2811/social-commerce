@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   User,
   Mail,
@@ -32,6 +32,7 @@ export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState(mockUser);
   const [editData, setEditData] = useState(mockUser);
+  const [showToast, setShowToast] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleEdit = () => {
@@ -48,7 +49,8 @@ export default function ProfilePage() {
     setUserData(editData);
     setIsEditing(false);
     // TODO: Gọi API để lưu thông tin vào database
-    alert("Cập nhật thông tin thành công!");
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2500);
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -95,6 +97,7 @@ export default function ProfilePage() {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Profile Card */}
@@ -274,6 +277,21 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
+
+      {/* Toast notification */}
+      {showToast && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+          <div className="bg-white dark:bg-zinc-800 rounded-2xl shadow-2xl px-8 py-6 flex flex-col items-center gap-3">
+            <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
+              <svg className="w-9 h-9 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p className="text-gray-800 dark:text-white font-semibold text-lg">Cập nhật thành công!</p>
+          </div>
+        </div>
+      )}
     </div>
+    </>
   );
 }

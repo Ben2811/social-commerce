@@ -5,12 +5,14 @@ import { useState, FormEvent, ChangeEvent } from "react";
 interface LoginFormData {
     email: string;
     password: string;
+    rememberMe: boolean;
 }
 
 export default function LoginPage() {
     const [formData, setFormData] = useState<LoginFormData>({
         email: "",
         password: "",
+        rememberMe: false,
     });
 
     const [isLoading, setIsLoading] = useState(false);
@@ -94,6 +96,29 @@ export default function LoginPage() {
                                 Quên mật khẩu?
                             </a>
                         </div>
+                    </div>
+
+                    {/* Remember Me */}
+                    <div className="flex items-center gap-2">
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                            name="rememberMe"
+                            checked={formData.rememberMe}
+                            onChange={(e) =>
+                                setFormData((prev) => ({
+                                    ...prev,
+                                    rememberMe: e.target.checked,
+                                }))
+                            }
+                            className="w-4 h-4 accent-black cursor-pointer"
+                        />
+                        <label
+                            htmlFor="rememberMe"
+                            className="text-sm text-gray-600 cursor-pointer select-none"
+                        >
+                            Ghi nhớ đăng nhập
+                        </label>
                     </div>
 
                     {/* Submit Button */}

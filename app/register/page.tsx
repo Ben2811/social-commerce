@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -66,7 +68,9 @@ export default function RegisterPage() {
 
   if (success) {
     return (
-      <div className="flex h-screen w-full items-center justify-center bg-white font-sans text-black">
+      <div className="flex min-h-screen flex-col font-sans text-black">
+        <Navbar />
+        <div className="flex flex-1 items-center justify-center bg-white">
         <div className="w-full max-w-sm rounded-lg bg-white p-8 shadow-md">
           <h2 className="mb-4 text-2xl font-bold text-green-600">Thành công!</h2>
           <p className="text-gray-600">Tài khoản của bạn đã được tạo thành công.</p>
@@ -77,12 +81,16 @@ export default function RegisterPage() {
             Đến trang Đăng Nhập
           </Link>
         </div>
+        </div>
+        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="flex h-screen w-full font-sans text-black">
+    <div className="flex min-h-screen flex-col font-sans text-black">
+      <Navbar />
+      <div className="flex flex-1">
         {/* Form Section */}
         <div className="flex w-full flex-col justify-center overflow-y-auto bg-white px-16 py-10 md:w-1/2">
           <h2 className="mb-8 text-2xl font-bold text-gray-900">Đăng ký săn deal ngay !!!</h2>
@@ -195,6 +203,8 @@ export default function RegisterPage() {
             </p>
           </div>
         </div>
+      </div>
+      <Footer />
     </div>
   );
 }

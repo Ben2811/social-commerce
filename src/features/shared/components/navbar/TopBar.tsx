@@ -25,7 +25,7 @@ export function TopBar() {
         
         <div className="flex items-center space-x-4">
           <Link
-            href="#"
+            href="/support"
             className="transition-colors hover:text-primary"
           >
             Hỗ trợ

@@ -43,7 +43,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="/support"
                   className="hover:text-foreground transition-colors"
                 >
                   Liên hệ
@@ -51,7 +51,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/support"
                   className="hover:text-foreground transition-colors"
                 >
                   FAQ
@@ -59,7 +59,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/support"
                   className="hover:text-foreground transition-colors"
                 >
                   Chính sách

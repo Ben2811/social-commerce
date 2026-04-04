@@ -3,7 +3,7 @@ import Link from "next/link";
 import { TopBar } from "./navbar/TopBar";
 import { SearchBar } from "./navbar/SearchBar";
 import { categoriesService } from "@/features/categories";
-import { CategoryButton } from "@/features/categories/componets/CategoryButton";
+import { CategoryButton } from "@/features/categories/components/CategoryButton";
 
 export async function Navbar() {
   const categoryResponse = await categoriesService.getCategories();

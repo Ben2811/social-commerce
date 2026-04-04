@@ -7,7 +7,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { ProfileSidebar } from "./ProfileSidebar";
 import type { ProfileTab } from "./ProfileSidebar";
 import { ProfileCard } from "./ProfileCard";
-// import { AddressesList } from "./AddressesList";
+import { AddressesList } from "./AddressesList";
 import { OrdersList, OrderDetail } from "@/features/orders";
 
 export function ProfileLayout() {
@@ -19,7 +19,7 @@ export function ProfileLayout() {
       <ProfileSidebar activeTab={activeTab} onTabChange={setActiveTab} />
       <SidebarInset className="bg-background p-6">
         {activeTab === "info" && <ProfileCard />}
-        {/* {activeTab === "addresses" && <AddressesList />} */}
+        {activeTab === "addresses" && <AddressesList />}
 
         {activeTab === "orders" && (
           <>

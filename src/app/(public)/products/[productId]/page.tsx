@@ -8,16 +8,16 @@ import {
 } from "@/features/reviews";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ProductBreadcrumb } from "@/features/products/components/product-detail/ProductBreadcrumb";
-import { ProductGallery } from "@/features/products/components/product-detail/ProductGallery";
-import { ProductHeader } from "@/features/products/components/product-detail/ProductHeader";
-import { ProductPricing } from "@/features/products/components/product-detail/ProductPricing";
-import { ProductVariants } from "@/features/products/components/product-detail/ProductVariants";
-import { ProductActions } from "@/features/products/components/product-detail/ProductActions";
+import { ProductBreadcrumb } from "@/features/products/component/product-detail/ProductBreadcrumb";
+import { ProductGallery } from "@/features/products/component/product-detail/ProductGallery";
+import { ProductHeader } from "@/features/products/component/product-detail/ProductHeader";
+import { ProductPricing } from "@/features/products/component/product-detail/ProductPricing";
+import { ProductVariants } from "@/features/products/component/product-detail/ProductVariants";
+import { ProductActions } from "@/features/products/component/product-detail/ProductActions";
 
-import { ProductSpecs } from "@/features/products/components/product-detail/ProductSpecs";
-import { ProductPolicies } from "@/features/products/components/product-detail/ProductPolicies";
-import { ProductDescription } from "@/features/products/components/product-detail/ProductDescription";
+import { ProductSpecs } from "@/features/products/component/product-detail/ProductSpecs";
+import { ProductPolicies } from "@/features/products/component/product-detail/ProductPolicies";
+import { ProductDescription } from "@/features/products/component/product-detail/ProductDescription";
 
 const EMPTY_REVIEWS_BUNDLE: ProductReviewsBundle = {
   reviews: [],

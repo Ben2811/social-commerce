@@ -7,6 +7,11 @@ export const API_ENDPOINTS = {
   reviews: "/api/reviews",
   messages: "/api/messages",
   cart: "/api/cart",
+  orders: "/api/orders",
+  payments: "/api/payments",
+  images: {
+    upload: "/api/images/upload",
+  },
   seller: {
     products: "/api/products/my",
   },
